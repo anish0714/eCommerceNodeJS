@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "16eeb63a-b4b1-44c2-9189-ba798e6acd3d",
+		"name": "Assignment 2 - NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Anish dandekar\",\r\n    \"email\": \"anishdandekar@gmail.com\",\r\n    \"password\": \"anish@123\",\r\n    \"shoppingAddress\": \"Brampton\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/user/register",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"anish@gmail.com\",\r\n    \"password\": \"anish@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/user/login",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check user logged in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nodeUrl}}/user/loggedin",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"user",
+						"loggedin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{nodeUrl}}/product",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"product name\", \r\n    \"price\": \"12\", \r\n    \"image\" : \"productimageurl.jpg\", \r\n    \"shippingCost\": \"12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/product",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ge product by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{nodeUrl}}/product/6182157ea644fe387a60e76a",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"product",
+						"6182157ea644fe387a60e76a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{nodeUrl}}/product/6186cef87b9e554ffc2b9446",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"product",
+						"6186cef87b9e554ffc2b9446"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all cart items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nodeUrl}}/cart/getCart",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"cart",
+						"getCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify cart item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : \"61825df37007989db1085029\",\r\n    \"productId\": \"617fdc11eb8c8adfca87ef5c\",\r\n    \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/cart/modifyCart",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"cart",
+						"modifyCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empty Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nodeUrl}}/cart/emptyCart",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"cart",
+						"emptyCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post comment on product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"userId\":\"61825df37007989db1085029\",\r\n      \"productId\": \"6186d436877d36f093b9c2e9\",\r\n      \"text\":\"comment text\",\r\n      \"rating\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/comment/",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"comment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All comments on a product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": \"6186d436877d36f093b9c2e9\", \r\n    \"userId\": \"61825df37007989db1085029\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/comment/getAllComments",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"comment",
+						"getAllComments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get comment by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nodeUrl}}/comment/6186665317271e48afff6833",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"comment",
+						"6186665317271e48afff6833"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update comment by id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"61825df37007989db1085029\",\r\n    \"productId\": \"6182148293a59481ef41b994\",\r\n    \"text\": \"new comment on product\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/comment/618666bd17271e48afff684d",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"comment",
+						"618666bd17271e48afff684d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nodeUrl}}/order/",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get order by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{nodeUrl}}/order/618697018b514f5820670c86",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"order",
+						"618697018b514f5820670c86"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"6186b08cf8bf0b11f62df3c3\",\r\n    \"shippingDetails\": \"shipping to toronto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nodeUrl}}/order",
+					"host": [
+						"{{nodeUrl}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "xAuthToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4MjVkZjM3MDA3OTg5ZGIxMDg1MDI5In0sImlhdCI6MTYzNjIyODM3MSwiZXhwIjoxNjM2MjMxOTcxfQ.yrbIAQLnJ8aBbaUZiEXKq_MQgNNSa_lJN10d13EHNQ4"
+		}
+	]
+}
